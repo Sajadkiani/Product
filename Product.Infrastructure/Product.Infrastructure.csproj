@@ -1,0 +1,38 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <RootNamespace>Product.Infrastructure</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="AutoMapper" Version="12.0.1" />
+        <PackageReference Include="Dapper" Version="2.0.123" />
+        <PackageReference Include="Grpc.Net.Client" Version="2.55.0" />
+        <PackageReference Include="Google.Protobuf" Version="3.24.0" />
+        <PackageReference Include="Grpc.AspNetCore" Version="2.55.0" />
+        <PackageReference Include="Grpc.Tools" Version="2.57.0">
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+            <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="MassTransit.Abstractions" Version="8.0.15" />
+        <PackageReference Include="MediatR" Version="12.0.1" />
+        <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.1.0" />
+        <PackageReference Include="Microsoft.Data.SqlClient" Version="5.0.1" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.5" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\BuildingBlocks\EventBus\EventBus.csproj" />
+        <ProjectReference Include="..\Product.Domain\Product.Domain.csproj" />
+        <ProjectReference Include="..\BuildingBlocks\IntegrationEventLogEF\IntegrationEventLogEF.csproj" />
+    </ItemGroup>
+    
+    <ItemGroup>
+        <Protobuf Include="Clients\Grpc\ClientProtos\Identity.proto" GrpcServices="Client" />
+<!--        <Protobuf Include="Clients\Grpc\ServerProtos\test.proto" GrpcServices="Server" />-->
+    </ItemGroup>
+
+</Project>
