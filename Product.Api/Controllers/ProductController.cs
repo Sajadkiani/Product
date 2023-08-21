@@ -7,6 +7,7 @@ using Product.Api.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Logging;
+using Product.Api.Security;
 
 namespace Product.Api.Controllers;
 
@@ -36,6 +37,7 @@ public class ProductController : ControllerBase
 
     [HttpPost]
     [Authorize]
+    [RequiredClaims("sajadkiani1")]
     public async Task<int> AddAsync([FromBody] ProductViewModel.AddProductInput input)
     {
         return 1;

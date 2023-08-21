@@ -6,6 +6,7 @@ using MassTransit;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Product.Api.Application.IntegrationEvents;
+using Product.Api.Security;
 
 namespace Product.Api.Extensions;
 

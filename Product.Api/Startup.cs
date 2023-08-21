@@ -78,7 +78,7 @@ namespace Product.Api
             {
                 o.Address = new Uri(configuration["Grpc:Clients:Identity:Url"]);
             }); 
-            services.AddControllers();
+            services.AddControllers(opt => opt.Filters.Add<RequiredClaimsAttribute>());
             services.AddAutoMapper(typeof(Startup), typeof(AutoMapperInfraProfile));
             services.AddAppSwagger();
         }

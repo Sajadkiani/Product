@@ -41,6 +41,7 @@
 
   <ItemGroup>
     <Folder Include="Application\IntegrationEvents\EventHandling" />
+    <Folder Include="Filters" />
     <Folder Include="Grpc" />
   </ItemGroup>
 

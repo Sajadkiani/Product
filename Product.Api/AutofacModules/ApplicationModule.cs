@@ -4,9 +4,11 @@ using EventBus.Abstractions;
 using Identity.Infrastructure.Dapper;
 using IntegrationEventLogEF.Services;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Product.Api.Application.DomainEventHandlers.Users;
+using Product.Api.Security;
 using Product.Domain.IServices;
 using Product.Domain.Validations.Users;
 using Product.Infrastructure.Clients.Grpc;
@@ -34,6 +36,7 @@ public class ApplicationModule
         
         builder.RegisterType<IdentityGrpcClientImpl>().As<IIdentityClient>().InstancePerLifetimeScope();
         builder.RegisterType<EventInitializer>().As<IEventInitializer>().InstancePerLifetimeScope();
+        // builder.RegisterType<ClaimHandler>().As<IAuthorizationHandler>().SingleInstance();
         builder.RegisterType<AppRandoms>().As<IAppRandoms>().InstancePerLifetimeScope();
         builder.RegisterType<Infrastructure.Brokers.EventBus>().As<IEventBus>().InstancePerLifetimeScope();
         builder.RegisterType<DapperQueryExecutor>().As<IQueryExecutor>().InstancePerLifetimeScope();
