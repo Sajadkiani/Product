@@ -18,6 +18,7 @@ public class IdentityGrpcClientImpl : IIdentityClient
     public async Task<AuthModel.GetTokenModel> RefreshTokenAsync(string refreshToken)
     {
         var token = await client.RefreshTokenAsync(new RefreshTokenRequest { RefreshToken = refreshToken });
+        
         return mapper.Map<AuthModel.GetTokenModel>(token);
     }
 }

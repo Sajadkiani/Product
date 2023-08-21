@@ -81,6 +81,7 @@ public class AppAuthenticationHandler : AuthenticationHandler<AppOptions.Jwt>
         }
         catch (Exception)
         {
+            cache.Remove(CacheKeys.Token + refreshToken);
             return AuthenticateResult.Fail("Invalid access token");
         }
     }

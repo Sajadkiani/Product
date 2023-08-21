@@ -15,6 +15,7 @@ using Microsoft.IdentityModel.Tokens;
 using Product.Api.Extensions;
 using Product.Api.Security;
 using Product.Infrastructure.Data.EF;
+using Product.Infrastructure.MapperProfiles;
 using Serilog;
 using Steeltoe.Discovery.Client;
 using Steeltoe.Discovery.Eureka;
@@ -78,7 +79,7 @@ namespace Product.Api
                 o.Address = new Uri(configuration["Grpc:Clients:Identity:Url"]);
             }); 
             services.AddControllers();
-            services.AddAutoMapper(typeof(Startup));
+            services.AddAutoMapper(typeof(Startup), typeof(AutoMapperInfraProfile));
             services.AddAppSwagger();
         }
 
